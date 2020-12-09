@@ -23,10 +23,11 @@ steps:
     goals: 'package'
 
 - task: CopyFiles@2
-    inputs:
-      SourceFolder: $(system.defaultworkingdirectory)
-      Contents: '**/*.war'
-      TargetFolder: $(build.artifactstagingdirectory)
+  displayName: "Copy Files to: $(build.artifactstagingdirectory)"
+  inputs:
+    SourceFolder: $(system.defaultworkingdirectory)
+    Contents: '**/*.war'
+    TargetFolder: $(build.artifactstagingdirectory)
 
 - task: Veracode@3
   inputs:

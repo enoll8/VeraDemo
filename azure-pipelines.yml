@@ -45,3 +45,8 @@ steps:
     scanStatusCheckInterval: '60'
     importResults: false
     failBuildOnPolicyFail: false
+
+- task: PowerShell@2
+  inputs:
+    targettype: inline
+    script: "Write-Output 'Download PipelineScanner'\n(New-Object System.Net.WebClient).DownloadFile('https://downloads.veracode.com/securityscan/pipeline-scan-LATEST.zip', '/pipeline-scan-LATEST.zip') \nWrite-Output 'Unzip PipelineScanner' \nExpand-Archive -force /pipeline-scan-LATEST.zip \nWrite-Output 'Run PipelineScanner'\njava -jar .\\pipeline-scan-LATEST\\pipeline-scan.jar -vid $env:API_ID -vkey $env:API_KEY -f $(build.artifactstagingdirectory)\\target\\*.war"

@@ -43,13 +43,13 @@ steps:
     importResults: false
     failBuildOnPolicyFail: false
     
-    - task: Veracode Flaw Importer@3
-      inputs:
-        ConnectionDetailsSelection: 'Endpoint'
-        AnalysisService: 'Veracode Upload and Scan'
-        veracodeAppProfile: 'VeraDemo'
-        sandboxName: 
-        importType: 'All Unmitigated Flaws Violating Policy'
-        workItemType: 'Bug'
-        area: '$(system.teamProject)'
-        flawImportLimit: '1000'
+- task: Veracode Flaw Importer@3
+  inputs:
+    ConnectionDetailsSelection: 'Endpoint'
+    AnalysisService: 'Veracode Upload and Scan'
+    veracodeAppProfile: 'VeraDemo'
+    sandboxName: 
+    importType: 'All Unmitigated Flaws Violating Policy'
+    workItemType: 'Bug'
+    area: '$(system.teamProject)'
+    flawImportLimit: '1000'

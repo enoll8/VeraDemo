@@ -31,7 +31,9 @@ steps:
 
 - task: Veracode@3
   inputs:
-    ConnectionDetailsSelection: 'Endpoint'
+    ConnectionDetailsSelection: 'Credentials'
+    apiId: '6b653b7d9a43214ec729f4c81efee28b'
+    apiKey: '86cb0a2591e9fc19961f57d2595cabfd6832a83c3d8b3358477bba400b1248c3a889467f39d6bf5a67c9ac4eb9739f725dfd27810ad0f9b5f3d53afd884a5d21'
     AnalysisService: 'Veracode Upload and Scan'
     veracodeAppProfile: 'VeraDemo'
     version: '$(build.buildNumber)'
